@@ -1,6 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
 * {
 	padding: 0;
 	margin: 0;
 	outline: none;
 	box-sizing: border-box;
+}
+
+button {
+	font-family: inherit;
+	border: 0;
+}
+
+:root {
+	--body-color: #000;
+	--btn-background-color: #191919;
+	--btn-color: #fff;
+	--background-gray: #D9D9D9;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	font-size: 1em;
+	font-family: 'Montserrat', sans-serif;
+	color: var(--body-color);
+	line-height: 1;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.content {
+	flex: 1 1 auto;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 20px;
+	max-width: 1440px;
+}
+
+.header-flex, 
+.footer-flex {
+	padding: 40px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.btn {
+	color: var(--btn-color);
+	text-transform: uppercase;
+	font-weight: 600;
+	background: var(--btn-background-color);
+	cursor: pointer;
+}
+
+.header__buttons-container {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.header__buttons-container .btn {
+	width: 200px;
+	height: 54px;
+}
+
+.about {
+	margin-bottom: 36px;
+}
+
+.about__bg {
+	margin-bottom: 50px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 45px;
+	height: 560px;
+	color: var(--btn-color);
+	font-size: 36px;
+	background: url("../images/about.jpg");
+	background-size: cover;
+}
+
+.about__bg .title {
+	font-weight: 400;
+}
+
+.about__bg .text {
+	font-weight: 600;
+}
+
+.about__bg .text:nth-child(3) {
+	padding-bottom: 20px;
+	text-transform: uppercase;
+	border-bottom: 4px solid var(--btn-color);
+}
+
+.container__text-photo {
+	display: grid;
+	grid-template: 1fr / 1fr 1fr;
+	height: 250px;
+	background: var(--background-gray);
+}
+
+.container__text-photo .text-body {
+	padding: 20px 20px 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.container__text-photo .title {
+	margin-bottom: 20px;
+}
+
+.find-job__photo {
+	background: url("../images/find_job.jpg");
+}
+
+.find-worker__photo {
+	background: url("../images/find_worker.jpg");
+}
+
+.find-job__photo, 
+.find-worker__photo {
+	height: 100%;
+	background-position: 0 -78px;
+	background-size: cover;
+}
+
+.find-worker .container__text-photo {
+	text-align: right;
+}
+
+.statistic {
+	margin: 76px 0 105px;
+}
+
+.welcome {
+	margin: 36px 0;
+}
+
+.welcome .title {
+	margin-bottom: 36px;
+	text-align: center;
+}
+
+.map__buttons-container {
+	display: flex;
+	width: 100%;
+}
+
+.map__buttons-container .btn {
+	padding: 38px 0;
+	width: 50%;
+	font-size: 20px;
+}
+
+.map-container iframe {
+	width: 100%;
+	height: 600px;
+}
+
+.footer .copyright {
+	text-align: center;
 }
