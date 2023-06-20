@@ -222,13 +222,8 @@ a.btn {
 	margin-bottom: 50px;
 }
 
-.footer-flex__item:nth-child(2),
 .footer-flex__item:nth-child(3) {
 	display: flex;
-}
-
-.footer-flex__item:nth-child(2) {
-	gap: 40px;
 }
 
 .footer-flex__item:nth-child(3) {
@@ -245,4 +240,8 @@ a.btn {
 
 .footer .copyright {
 	text-align: center;
+}
+
+.privacy-list li {
+	margin-left: 20px;
 }
