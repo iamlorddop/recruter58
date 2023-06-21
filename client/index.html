@@ -48,8 +48,7 @@
 							<h2 class="title">ИЩЕТЕ РАБОТУ?</h2>
 							<p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptas voluptatum dolor illo consequuntur quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptas voluptatum dolor illo consequuntur quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptas voluptatum dolor illo consequuntur quisquam!</p>
 						</div>
-						<div class="find-job__photo">
-						</div>
+						<div class="find-job__photo"></div>
 					</div>
 				</section>
 				<section class="statistic">
@@ -72,8 +71,7 @@
 				</section>
 				<section class="find-worker">
 					<div class="container__text-photo">
-						<div class="find-worker__photo">
-						</div>
+						<div class="find-worker__photo"></div>
 						<div class="text-body">
 							<h2 class="title">ИЩЕТЕ РАБОТНИКА?</h2>
 							<p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptas voluptatum dolor illo consequuntur quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptas voluptatum dolor illo consequuntur quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptas voluptatum dolor illo consequuntur quisquam!</p>
@@ -90,6 +88,43 @@
 					</div>
 				</section>
 				<!-- hidden popups -->
+				<div class="popup applicant-popup">
+					<button class="popup__cross">X</button>
+					<div class="popup__bg"></div>
+					<form action="post.php" method="post" class="popup__form applicant-popup__form">
+						<h2 class="title">Соискателю</h2>
+						<div class="applicant-popup__form__input">
+							<input type="text" placeholder="Введите фамилию">
+						</div>
+						<div class="applicant-popup__form__input">
+							<input type="text" placeholder="Введите имя">
+						</div>
+						<div class="applicant-popup__form__input">
+							<input type="text" placeholder="Введите отчество">
+						</div>
+						<div class="applicant-popup__form__input">
+							<input type="text" placeholder="Введите вашу профессию">
+						</div>
+						<div class="applicant-popup__form__input">
+							<input type="text" placeholder="Желаемый размер заработной платы">
+						</div>
+						<div class="applicant-popup__form__input">
+							<input type="text" placeholder="Желаемая форма занятости">
+						</div>
+						<div class="applicant-popup__form__input">
+							<input type="text" placeholder="Введите телефон">
+						</div>
+						<div class="applicant-popup__form__input">
+							<input type="text" placeholder="Введите почту">
+						</div>
+						<div class="applicant-popup__form__input">
+							<input type="checkbox" checked id="privacy__input">
+							<label for="privacy__input">Даю согласие на обработку персональных данных</label>
+						</div>
+						<input type="submit" value="Отправить" class="btn">
+					</form>
+				</div>
+				<div class="popup employer_popup"></div>
 				<section class="map">
 					<div class="map__buttons-container" id="buttons_container">
 						<button class="btn">стать соискателем</button>
@@ -103,29 +138,29 @@
 		</div>
 		<footer class="footer">
 			<div class="container">
-				<div class="footer-flex">
-					<div class="footer-flex__item">
+				<div class="footer-grid">
+					<div class="footer-grid__item">
 						<a href="#">
 							<img src="assets/images/logo.svg" alt="Логотип">
 						</a>
 					</div>
-					<div class="footer-flex__item">
-						<a href="privacy_policy.html" target="_blank" class="footer-flex__item-link">Политика конфиденциальности</a>
+					<div class="footer-grid__item">
+						<a href="privacy_policy.html" target="_blank" class="footer-grid__item-link">Политика конфиденциальности</a>
 					</div>
-					<div class="footer-flex__item">
-						<a class="footer-flex__item-social" href="#" target="_blank">
+					<div class="footer-grid__item">
+						<a class="footer-grid__item-social" href="#" target="_blank">
 							<img src="assets/images/whatsapp.jpg" alt="whatsapp">
 						</a>
-						<a class="footer-flex__item-social" href="#" target="_blank">
+						<a class="footer-grid__item-social" href="#" target="_blank">
 							<img src="assets/images/vk.jpg" alt="vk">
 						</a>
-						<a class="footer-flex__item-social" href="#" target="_blank">
+						<a class="footer-grid__item-social" href="#" target="_blank">
 							<img src="assets/images/telegram.jpg" alt="telegram">
 						</a>
 					</div>
+					<p class="copyright">© 2023. Все права защищены</p>
 				</div>
 			</div>
-			<p class="copyright">© 2023. Все права защищены</p>
 		</footer>
 	</div>
 	<script src="js/index.js"></script>
