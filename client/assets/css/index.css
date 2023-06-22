@@ -17,7 +17,7 @@ button {
 	--btn-background-color: #191919;
 	--btn-color: #fff;
 	--btn-background-hover: #333;
-	--background-gray: #D9D9D9;
+	--background-gray: #e8e8e8;
 	--pulse-background: #858585;
 	--bg-popup: linear-gradient(180deg, #000000 0%, #858383 147%);
 	--popup-color: #858383;
@@ -59,7 +59,7 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
-    gap: 20px;
+   gap: 20px;
 }
 
 a.btn {
@@ -88,7 +88,7 @@ a.btn {
 	position: absolute;
 	background: var(--pulse-background);
 	border-radius: 50%;
-	animation: pulse 0.7s ease-out;
+	animation: pulse .7s ease-out;
 	transform: scale(0);
 }
 
@@ -146,58 +146,37 @@ a.btn {
 	border-bottom: 4px solid var(--btn-color);
 }
 
-.container__text-photo {
-	display: grid;
-	grid-template: 1fr / 1fr 1fr;
+.text-body {
+	padding: 60px 20px;
 	background: var(--background-gray);
 }
 
-.container__text-photo .text-body {
-	padding: 60px 20px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.container__text-photo .title {
+.text-body .title {
 	margin-bottom: 20px;
-}
-
-.find-job__photo {
-	background: url("../images/find_job.jpg");
-}
-
-.find-worker__photo {
-	background: url("../images/find_worker.jpg");
-}
-
-.find-job__photo, 
-.find-worker__photo {
-	height: 100%;
-	background-position: 0 -32px;
-	background-size: cover;
-}
-
-.find-worker .container__text-photo {
-	text-align: right;
+	text-align: center;
 }
 
 .statistic {
-	margin: 76px 0 105px;
+	margin: 76px 0;
 }
 
 .statistic-flex {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	flex-wrap: wrap;
-	gap: 90px;
+	gap: 20px;
 }
 
 .statistic-flex__item {
+	padding: 30px 20px;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	gap: 36px;
+	justify-content: center;
+	gap: 10px;
+	max-width: 416px;
+	min-width: 134px;
+	text-align: center;
+	box-shadow: 0 0 10px var(--input-shadow);
 }
 
 .statistic-flex__item span {
@@ -229,6 +208,7 @@ a.btn {
 .map-container iframe {
 	width: 100%;
 	height: 500px;
+	border: none;
 }
 
 .footer {
@@ -255,11 +235,13 @@ a.btn {
 	grid-column: 2 / 3;
 }
 
-.footer-grid__item-link {
+.footer-grid__item-link,
+.welcome a {
 	color: inherit;
 }
 
-.footer-grid__item-link:hover {
+.footer-grid__item-link:hover,
+.welcome a:hover {
 	text-decoration: none;
 }
 
@@ -267,21 +249,78 @@ a.btn {
 	margin-left: 20px;
 }
 
-.popup {
-	position: absolute;
-	top: 5%;
-	left: 50%;
+.popup-dark__bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	min-height: 100%;
+	background: var(--input-focus);
+	z-index: 998;
+}
+
+.active {
+	display: block;
+}
+
+.applicant-popup.popup-active,
+.employer-popup.popup-active {
 	display: flex;
+	animation: activepopup .15s ease-in forwards;
+}
+
+@keyframes activepopup {
+	100% {
+		transform: translateX(-50%) scale(1);
+	}
+}
+
+.applicant-popup,
+.employer-popup {
+	display: none;
+}
+
+.popup {
+	position: fixed;
+	bottom: 10%;
+	left: 50%;
 	background: var(--btn-color);
-	transform: translateX(-50%);
+	transform: translateX(-50%) scale(0);
 	z-index: 999;
 }
 
 .popup__cross {
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 12px;
+   right: 16px;
+	width: 34px;
+	height: 34px;
+	background: none;
 	cursor: pointer;
+}
+
+.popup__cross span {
+	position: absolute;
+	top: 0;
+	left: 16px;
+	width: 3px;
+	height: 34px;
+	background: var(--popup-color);
+	border-radius: 2px;
+	transform: rotate(45deg);
+}
+
+.popup__cross span::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 3px;
+	height: 34px;
+	background: var(--popup-color);
+	border-radius: 2px;
+	transform: rotate(-90deg);
 }
 
 .popup__form {
@@ -294,13 +333,13 @@ a.btn {
 	background: var(--bg-popup);
 }
 
-.popup__form__input, 
-.popup__form__checkbox,
+.popup__form-input, 
+.popup__form-checkbox,
 .popup .btn {
 	margin-top: 20px;
 }
 
-.popup__form__input input {
+.popup__form-input input {
 	padding: 4px 10px;
 	width: 100%;
 	height: 40px;
@@ -310,7 +349,7 @@ a.btn {
 	transition: box-shadow .3s ease;
 }
 
-.popup__form__input input:focus {
+.popup__form-input input:focus {
 	box-shadow: 0 0 10px var(--input-focus);
 }
 
@@ -360,6 +399,13 @@ a.btn {
 .popup .btn {
 	padding: 20px 40px;
 	display: block;
+}
+
+@media (max-width: 1300px) {
+	.popup {
+		position: absolute;
+		bottom: 5%;
+	}
 }
 
 @media (max-width: 900px) {
