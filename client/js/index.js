@@ -25,14 +25,8 @@ document.querySelector('.employer-popup__cross').addEventListener('click', () =>
    employerPopup.classList.remove('popup-active')
    popupBackground.classList.remove('active')
 })
-formApplicant.addEventListener('submit', event => {
-   event.preventDefault()
-   console.log('Works!')
-})
-formEmployer.addEventListener('submit', event => {
-   event.preventDefault()
-   console.log('Works!')
-})
+formApplicant.addEventListener('submit', formApplicantSend)
+formEmployer.addEventListener('submit', formEmployerSend)
 
 function addElement(e) {
    let addDiv = document.createElement('div'),
@@ -45,4 +39,95 @@ function addElement(e) {
 
    addDiv.classList.add('pulse')
    this.appendChild(addDiv)
+}
+
+async function formApplicantSend(e) {
+   e.preventDefault()
+
+   let error = formValidate(formApplicant)
+
+   let formData = new FormData(formApplicant)
+   if (error === 0) {
+      let response = await fetch('post.php', {
+         method: 'POST',
+         body: formData
+      })
+      if (response.ok) {
+         let result = await response.json()
+         console.log(result.message) // заменим на другие элементы в попапе
+         formApplicant.reset()
+      } else {
+         console.log('Ошибка')
+      }
+   }
+}
+
+async function formEmployerSend(e) {
+   e.preventDefault()
+
+   let error = formValidate(formEmployer)
+
+   let formData = new FormData(formEmployer)
+   if (error === 0) {
+      let response = await fetch('post.php', {
+         method: 'POST',
+         body: formData
+      })
+      if (response.ok) {
+         let result = await response.json()
+         console.log(result.message) // заменим на другие элементы в попапе
+         formApplicant.reset()
+      } else {
+         console.log('Ошибка')
+      }
+   }
+}
+
+function formValidate(form) {
+   let error = 0
+   let formReq = document.querySelectorAll('._req')
+
+   for (let i = 0; i < formReq.length; i++) {
+      const input = formReq[i]
+      formRemoveError(input)
+
+      if (input.classList.contains('_email')) {
+         if(emailTest(input)) {
+            formAddError(input)
+            error++
+         }
+      } else if (input.classList.contains('_tel')) {
+         if(telTest(input)) {
+            formAddError(input)
+            error++
+         }
+      } else if (input.getAttribute('type') === 'checkbox' && input.checked === false) {
+         formAddError(input)
+         error++
+      } else {
+         if (input.value === '') {
+            formAddError(input)
+            error++
+         }
+      }
+   }
+   return error
+}
+
+function formAddError(input) {
+   input.parentElement.classList.add('_error')
+   input.classList.add('_error')
+}
+
+function formRemoveError(input) {
+   input.parentElement.classList.remove('_error')
+   input.classList.remove('_error')
+}
+
+function emailTest(input) {
+   return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value)
+}
+
+function telTest(input) {
+   return !/(\d?)?(\d{3})?(\d{3})?(\d{2})?(\d{2})/.test(input.value)
 }
