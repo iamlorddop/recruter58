@@ -24,6 +24,7 @@ button {
 	--checkbox-focus: #00379e6c;
 	--input-shadow: rgba(0, 0, 0, 0.2);
 	--input-focus: rgba(0, 0, 0, 0.5);
+	--error: red; 
 }
 
 body {
@@ -351,6 +352,14 @@ a.btn {
 
 .popup__form-input input:focus {
 	box-shadow: 0 0 10px var(--input-focus);
+}
+
+.popup__form-input input._error {
+	box-shadow: 0 0 10px var(--error);
+}
+
+.checkbox._error .custom-checkbox {
+	box-shadow: 0 0 10px var(--error);
 }
 
 .real-checkbox {
