@@ -5,6 +5,9 @@ const applicantPopup = document.querySelector('.applicant-popup')
 const employerPopup = document.querySelector('.employer-popup')
 const formApplicant = document.querySelector('.applicant-popup__form')
 const formEmployer = document.querySelector('.employer-popup__form')
+const phoneInputs = document.querySelectorAll('._tel')
+const applicantPopupCross = document.querySelector('.applicant-popup__cross')
+const employerPopupCross = document.querySelector('.employer-popup__cross')
 
 Array.prototype.forEach.call(button, b => b.addEventListener('click', addElement))
 document.querySelector('#applicant_btn').addEventListener('click', () => scrollToButtons.scrollIntoView({behavior: 'smooth'}))
@@ -13,16 +16,21 @@ document.querySelector('.applicant').addEventListener('click', () => {
    popupBackground.classList.add('active')
    applicantPopup.classList.add('popup-active')
 })
-document.querySelector('.applicant-popup__cross').addEventListener('click', () => {
-   applicantPopup.classList.remove('popup-active')
-   popupBackground.classList.remove('active')
-})
 document.querySelector('.employer').addEventListener('click', () => {
    popupBackground.classList.add('active')
    employerPopup.classList.add('popup-active')
 })
-document.querySelector('.employer-popup__cross').addEventListener('click', () => {
+applicantPopupCross.addEventListener('click', () => {
+   applicantPopup.classList.remove('popup-active')
+   popupBackground.classList.remove('active')
+})
+employerPopupCross.addEventListener('click', () => {
    employerPopup.classList.remove('popup-active')
+   popupBackground.classList.remove('active')
+})
+popupBackground.addEventListener('click', () => {
+   employerPopup.classList.remove('popup-active')
+   applicantPopup.classList.remove('popup-active')
    popupBackground.classList.remove('active')
 })
 formApplicant.addEventListener('submit', formApplicantSend)
@@ -54,7 +62,8 @@ async function formApplicantSend(e) {
       })
       if (response.ok) {
          let result = await response.json()
-         console.log(result.message) // заменим на другие элементы в попапе
+         formApplicant.classList.add('close-form')
+         document.querySelector('.applicant-popup > .popup-form__send').classList.add('active-send') // console.log(result.message)
          formApplicant.reset()
       } else {
          console.log('Ошибка')
@@ -75,7 +84,8 @@ async function formEmployerSend(e) {
       })
       if (response.ok) {
          let result = await response.json()
-         console.log(result.message) // заменим на другие элементы в попапе
+         formEmployer.classList.add('close-form')
+         document.querySelector('.employer-popup > .popup-form__send').classList.add('active-send') // console.log(result.message) 
          formApplicant.reset()
       } else {
          console.log('Ошибка')
@@ -131,3 +141,9 @@ function emailTest(input) {
 function telTest(input) {
    return !/(\d?)?(\d{3})?(\d{3})?(\d{2})?(\d{2})/.test(input.value)
 }
+
+phoneInputs.forEach(input => { 
+   IMask(input, {
+     mask: '+{7}(000)000-00-00'
+   })
+})
