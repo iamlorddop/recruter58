@@ -4,7 +4,16 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-$connection = odbc_connect("rectuter", "", "root");
+$connection = odbc_connect("rectuter", "root", "root");
+
+if (!$connection){
+   if (phpversion() < '4.0'){
+      exit("Connection Failed: . $php_errormsg" );
+   }
+   else{
+      exit("Connection Failed:" . odbc_errormsg() );
+   }
+}
 
 $sql = "SELECT * FROM работодатели";
 
@@ -17,4 +26,5 @@ while(odbc_fetch_row($result)){
    }
 }
 
+odbc_close($connection);
 ?>
