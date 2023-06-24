@@ -4,7 +4,7 @@
 - Разработку базы данных и пользовательского интерфейса
 - Верстку сайта с возможностью добавления записей в БД
 
-В проекте были использованы: HTML5, CSS3, JavaScript, PHP, Microsoft Access. Для подключения к базе данных Access применялся ODBC.
+В проекте были использованы: HTML5, CSS3, JavaScript, PHP, imask.js, Microsoft Access. Для подключения к базе данных Access применялся ODBC.
 
 # Полезные ссылки:
 - [PHP: ODBC - Manual](https://www.php.net/manual/en/book.uodbc.php)
