@@ -13,25 +13,45 @@ Array.prototype.forEach.call(button, b => b.addEventListener('click', addElement
 document.querySelector('#applicant_btn').addEventListener('click', () => scrollToButtons.scrollIntoView({behavior: 'smooth'}))
 document.querySelector('#employer_btn').addEventListener('click', () => scrollToButtons.scrollIntoView({behavior: 'smooth'}))
 document.querySelector('.applicant').addEventListener('click', () => {
+   applicantPopupCross.classList.remove('cross-close')
+   applicantPopup.classList.remove('popup-close')
    popupBackground.classList.add('active')
    applicantPopup.classList.add('popup-active')
 })
 document.querySelector('.employer').addEventListener('click', () => {
+   employerPopupCross.classList.remove('cross-close')
+   employerPopup.classList.remove('popup-close')
    popupBackground.classList.add('active')
    employerPopup.classList.add('popup-active')
 })
 applicantPopupCross.addEventListener('click', () => {
-   applicantPopup.classList.remove('popup-active')
-   popupBackground.classList.remove('active')
+   applicantPopupCross.classList.add('cross-close')
+   setTimeout(() => {
+      applicantPopup.classList.add('popup-close')
+   }, 250)
+   setTimeout(() => {
+      applicantPopup.classList.remove('popup-active')
+      popupBackground.classList.remove('active')
+   }, 400)
 })
 employerPopupCross.addEventListener('click', () => {
-   employerPopup.classList.remove('popup-active')
-   popupBackground.classList.remove('active')
+   employerPopupCross.classList.add('cross-close')
+   setTimeout(() => {
+      employerPopup.classList.add('popup-close')
+   }, 250)
+   setTimeout(() => {
+      employerPopup.classList.remove('popup-active')
+      popupBackground.classList.remove('active')
+   }, 400)
 })
 popupBackground.addEventListener('click', () => {
-   employerPopup.classList.remove('popup-active')
-   applicantPopup.classList.remove('popup-active')
-   popupBackground.classList.remove('active')
+   applicantPopup.classList.add('popup-close')
+   employerPopup.classList.add('popup-close')
+   setTimeout(() => {
+      employerPopup.classList.remove('popup-active')
+      applicantPopup.classList.remove('popup-active')
+      popupBackground.classList.remove('active')
+   }, 150)
 })
 formApplicant.addEventListener('submit', formApplicantSend)
 formEmployer.addEventListener('submit', formEmployerSend)
@@ -66,7 +86,7 @@ async function formApplicantSend(e) {
          document.querySelector('.applicant-popup > .popup-form__send').classList.add('active-send') // console.log(result.message)
          formApplicant.reset()
       } else {
-         console.log('Ошибка')
+         alert('Ошибка')
       }
    }
 }
@@ -88,7 +108,7 @@ async function formEmployerSend(e) {
          document.querySelector('.employer-popup > .popup-form__send').classList.add('active-send') // console.log(result.message) 
          formApplicant.reset()
       } else {
-         console.log('Ошибка')
+         alert('Ошибка')
       }
    }
 }

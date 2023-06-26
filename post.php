@@ -56,7 +56,7 @@ if (trim(!empty($_POST['profession']))) {
 }
 if (trim(!empty($_POST['salary']))) {
    $salary = $_POST['salary'];
-   $sql = "INSERT INTO соискатели (желаемый_размер_зп) VALUES ($salary)";
+   $sql = "INSERT INTO соискатели (предполагаемый_размер_зп) VALUES ($salary)";
    $result = odbc_exec($connection, $sql);
 }
 if (trim(!empty($_POST['employment']))) {
@@ -107,7 +107,7 @@ if (trim(!empty($_POST['phone_employer']))) {
 }
 if (trim(!empty($_POST['email_employer']))) {
    $email = $_POST['email_employer'];
-   $sql = "INSERT INTO работодатели (телефон) VALUES ($email)";
+   $sql = "INSERT INTO работодатели (электронная_почта) VALUES ($email)";
    $result = odbc_exec($connection, $sql);
 }
 
