@@ -22,9 +22,9 @@ button {
 	--bg-popup: linear-gradient(180deg, #000000 0%, #858383 147%);
 	--popup-color: #858383;
 	--checkbox-focus: #00379e6c;
-	--input-shadow: rgba(0, 0, 0, 0.2);
-	--input-focus: rgba(0, 0, 0, 0.5);
-	--error: red; 
+	--input-shadow: #00000033;
+	--input-focus: #00000080;
+	--error: #ff0000; 
 }
 
 body {

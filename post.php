@@ -4,24 +4,13 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-$connection = odbc_connect(
-   "Driver={Microsoft Access Driver (*.mdb, *.accbd)};Dbq=recruter", 
-   "root", 
-   "root",
-   SQL_CUR_USE_DRIVER
-);
-
-if (!$connection){
-   if (phpversion() < '4.0'){
-      exit("Connection Failed: . $php_errormsg" );
-   }
-   else{
-      exit("Connection Failed:" . odbc_errormsg() );
-   }
+try {
+   $db = new PDO("odbc:Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=recruter", "", "");
+} catch (PDOException $e) {
+   echo $e->getMessage();
 }
 
 // пример
-
 // $sql = "SELECT * FROM работодатели";
 
 // $result = odbc_exec($connection, $sql);
