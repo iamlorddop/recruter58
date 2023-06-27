@@ -12,6 +12,11 @@ button {
 	border: 0;
 }
 
+input[type="submit"] {
+	outline: 0;
+	border: 0;
+}
+
 :root {
 	--body-color: #000;
 	--btn-background-color: #191919;
