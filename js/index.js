@@ -76,17 +76,18 @@ async function formApplicantSend(e) {
 
    let formData = new FormData(formApplicant)
    if (error === 0) {
-      let response = await fetch('post.php', {
+      let response = await fetch('applicant.php', {
          method: 'POST',
          body: formData
       })
       if (response.ok) {
          let result = await response.json()
+         console.log(result.message)
          formApplicant.classList.add('close-form')
          document.querySelector('.applicant-popup > .popup-form__send').classList.add('active-send') // console.log(result.message)
          formApplicant.reset()
       } else {
-         alert('Ошибка')
+         console.log('Ошибка')
       }
    }
 }
@@ -98,17 +99,18 @@ async function formEmployerSend(e) {
 
    let formData = new FormData(formEmployer)
    if (error === 0) {
-      let response = await fetch('post.php', {
+      let response = await fetch('employer.php', {
          method: 'POST',
          body: formData
       })
       if (response.ok) {
          let result = await response.json()
+         console.log(result.message)
          formEmployer.classList.add('close-form')
          document.querySelector('.employer-popup > .popup-form__send').classList.add('active-send') // console.log(result.message) 
          formApplicant.reset()
       } else {
-         alert('Ошибка')
+         console.log('Ошибка')
       }
    }
 }
