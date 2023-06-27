@@ -403,6 +403,7 @@ a.btn {
 	height: 40px;
 	border: none;
 	font-size: 1em;
+	-webkit-appearance: none;
 	box-shadow: 0 0 10px var(--input-shadow);
 	-webkit-box-shadow: 0 0 10px var(--input-shadow);
 	-moz-box-shadow: 0 0 10px var(--input-shadow);
@@ -410,18 +411,21 @@ a.btn {
 }
 
 .popup__form-input input:focus {
+	-webkit-appearance: none;
 	box-shadow: 0 0 10px var(--input-focus);
 	-webkit-box-shadow: 0 0 10px var(--input-focus);
 	-moz-box-shadow: 0 0 10px var(--input-focus);
 }
 
 .popup__form-input input._error {
+	-webkit-appearance: none;
 	box-shadow: 0 0 10px var(--error);
 	-webkit-box-shadow: 0 0 10px var(--error);
 	-moz-box-shadow: 0 0 10px var(--error);
 }
 
 .checkbox._error .custom-checkbox {
+	-webkit-appearance: none;
 	box-shadow: 0 0 10px var(--error);
 	-webkit-box-shadow: 0 0 10px var(--error);
 	-moz-box-shadow: 0 0 10px var(--error);
@@ -436,6 +440,7 @@ a.btn {
 }
 
 .real-checkbox:focus + .custom-checkbox {
+	-webkit-appearance: none;
 	box-shadow: 0 0 10px var(--checkbox-focus);
 	-webkit-box-shadow: 0 0 10px var(--checkbox-focus);
 	-moz-box-shadow: 0 0 10px var(--checkbox-focus);
