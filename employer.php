@@ -15,10 +15,9 @@ $mail->setLanguage('ru', 'phpmailer/language/');
 $mail->isHTML(true);
 
 $mail->isSMTP();
-$mail->SMTPDebug = SMTP::DEBUG_SERVER;
 $mail->Host = 'smtp.gmail.com';
 $mail->Port = 465;
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+$mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 $mail->Username = 'recruter58@gmail.com';
 $mail->Password = 'nrgrsfagwqszwzih';
