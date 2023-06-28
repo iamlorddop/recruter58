@@ -4,7 +4,7 @@
 - Разработку базы данных и пользовательского интерфейса
 - Верстку сайта с возможностью отправки данных на почту
 
-В проекте были использованы: HTML5, CSS3, JavaScript, PHP, imask.js, Microsoft Access.
+В проекте были использованы: HTML5, CSS3, JavaScript, PHP, imask.js, PHPMailer, Microsoft Access.
 
 # Команда 
 [Хаваева Юлия](https://github.com/iamlorddop)
