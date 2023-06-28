@@ -8,4 +8,5 @@
 
 # Команда 
 [Хаваева Юлия](https://github.com/iamlorddop)
+
 [Новикова Полина](https://github.com/paulineNew)
