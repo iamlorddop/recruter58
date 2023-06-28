@@ -5,3 +5,7 @@
 - Верстку сайта с возможностью отправки данных на почту
 
 В проекте были использованы: HTML5, CSS3, JavaScript, PHP, imask.js, Microsoft Access.
+
+# Команда 
+[Хаваева Юлия](https://github.com/iamlorddop)
+[Новикова Полина](https://github.com/paulineNew)
