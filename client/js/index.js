@@ -45,13 +45,17 @@ employerPopupCross.addEventListener('click', () => {
    }, 400)
 })
 popupBackground.addEventListener('click', () => {
-   applicantPopup.classList.add('popup-close')
-   employerPopup.classList.add('popup-close')
+   applicantPopupCross.classList.add('cross-close')
+   employerPopupCross.classList.add('cross-close')
+   setTimeout(() => {
+      applicantPopup.classList.add('popup-close')
+      employerPopup.classList.add('popup-close')
+   }, 250)
    setTimeout(() => {
       employerPopup.classList.remove('popup-active')
       applicantPopup.classList.remove('popup-active')
       popupBackground.classList.remove('active')
-   }, 150)
+   }, 400)
 })
 formApplicant.addEventListener('submit', formApplicantSend)
 formEmployer.addEventListener('submit', formEmployerSend)
